@@ -1,5 +1,5 @@
-
 import Expense from "./components/Expenses/Expense";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 
 const App = () => {
@@ -25,10 +25,13 @@ const App = () => {
     },
   ];
 
+  function importExpenData(data){
+    console.log(data);
+  }
+
   return (
     <div>
-      <h2> 지출 </h2>
-
+      <NewExpense importExpenData={importExpenData} />
       <Expense expenses={expenses} />
     </div>
   );

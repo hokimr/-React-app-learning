@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import './Exprense.css'
 import Expenselitem from "./Expenselitem";
+import ExpensesFilter from "./ExpensesFilter";
 
 
 function Expense(props) {
+
+  const [seleteYear, setYear] = useState('2022')
+
+  function getYearValue(data){
+    setYear(data);
+  }
+  console.log(seleteYear);
+  
   return (
     <div  className="expenses">
+    <ExpensesFilter seleted={seleteYear} getYearValue={getYearValue}/>
       <Expenselitem
         title={props.expenses[0].title}
         amount={props.expenses[0].amount}
@@ -27,6 +37,7 @@ function Expense(props) {
         date={props.expenses[3].date}
       />
     </div>
+
   );
 }
 
